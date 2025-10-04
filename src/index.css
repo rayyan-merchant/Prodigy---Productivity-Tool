@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 201 70% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 174 84% 56%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 48%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 201 70% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 201 96% 32%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 201 70% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 174 84% 56%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 213 27% 84%;
+
+    --sidebar-background: 217 33% 15%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 201 70% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 201 96% 32%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-roboto;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Ensure headings work properly in both light and dark mode */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground;
+  }
+  
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    @apply text-foreground;
+  }
+}
+
+/* Custom hover states for consistency */
+.button-hover-red:hover,
+.button:hover,
+button:hover,
+a:hover,
+.hoverable:hover {
+  @apply hover:bg-[#D2353E]/10 hover:text-[#D2353E] !important;
+}
+
+.task-card {
+  @apply transition-all duration-200 hover:shadow-md hover:border-[#D2353E]/30;
+}
+
+.stat-card {
+  @apply transition-all duration-200 hover:scale-[1.02];
+}
+
+.fade-in {
+  @apply animate-fade-in;
+}
+
+/* Define custom utilities */
+@layer utilities {
+  /* Customizing focus states */
+  .focus-state {
+    @apply focus:outline-none focus:ring-2 focus:ring-[#D2353E] focus:ring-opacity-50;
+  }
+  
+  /* Red button hover style */
+  .hover-red {
+    @apply hover:bg-[#D2353E]/10 hover:text-[#D2353E];
+  }
+  
+  /* Primary button hover override */
+  .btn-primary:hover {
+    @apply hover:bg-[#D2353E]/90 hover:text-white;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

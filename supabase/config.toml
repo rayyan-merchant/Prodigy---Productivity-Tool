@@ -1,0 +1,23 @@
+
+project_id = "xbhtqcyxrgvhxzlrhmvd"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 54324
+site_name = "Productivity App"
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["https://xbhtqcyxrgvhxzlrhmvd.supabase.co"]
+jwt_expiry = 3600
+refresh_token_rotation_enabled = true
+security_captcha_enabled = false
+security_captcha_secret = ""
+
+[functions.ai-service]
+verify_jwt = false
